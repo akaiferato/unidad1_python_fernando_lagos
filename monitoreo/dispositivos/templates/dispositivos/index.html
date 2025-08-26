@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bienvenido</title>
-<style>
-body {
-font-family: sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-margin: 0;
-background-color: #f4f4f4;
-}
-.container {
-text-align: center;
-background-color: #fff;
-padding: 40px;
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-h1 {
-font-size: 2.5em;
-color: #333;
-margin-bottom: 20px;
-}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>¡Bienvenido!</h1>
-<p>Esta es una página de bienvenida estática creada con HTML.</p>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .correcto {
+        color: green;
+      }
+      .exceso {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>¡Bienvenido!</h1>
+      <p>Probando printeo de datos con django.</p>
+      <p>Increible, omygod.</p>
+      {% for dispositivo in dispositivos %}
+        {% if dispositivo.consumo > consumo_maximo %}
+          <p class="exceso">{{dispositivo.nombre}} - {{dispositivo.consumo}} - Exceso</p>
+        {% else %}
+          <p class="correcto">{{dispositivo.nombre}} - {{dispositivo.consumo}} - Correcto</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </body>
 </html>
