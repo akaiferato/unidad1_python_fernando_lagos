@@ -40,11 +40,11 @@
       <h1>¡Bienvenido!</h1>
       <p>Probando printeo de datos con django.</p>
       <p>Increible, omygod.</p>
-      {% for dispositivo in dispositivos %}
-        {% if dispositivo.consumo > consumo_maximo %}
-          <p class="exceso">{{dispositivo.nombre}} - {{dispositivo.consumo}} - Exceso</p>
+      {% for medicion in mediciones %}
+        {% if medicion.consumo > medicion.limite_consumo %}
+          <p class="exceso">{{medicion.dispositivo.nombre}} - {{medicion.consumo}} - Exceso <a href="{% url 'dispositivo' medicion.dispositivo.id %}">Detalle</a></p>
         {% else %}
-          <p class="correcto">{{dispositivo.nombre}} - {{dispositivo.consumo}} - Correcto</p>
+          <p class="correcto">{{medicion.dispositivo.nombre}} - {{medicion.consumo}} - Correcto <a href="{% url 'dispositivo' medicion.dispositivo.id %}">Detalle</a></p>
         {% endif %}
       {% endfor %}
     </div>

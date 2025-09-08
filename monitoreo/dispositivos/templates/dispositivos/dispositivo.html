@@ -1,19 +1,16 @@
-<<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vista Documento</title>
-</head>
-<body>
-  <h1>Cargando datos del modelo</h1>
-  <p>Watafak django</p>
-  <ul>
-    {% for dispositivo in dispositivos %}
-      <li>{{dispositivo.nombre}} - {{dispositivo.estado}} - {{dispositivo.categoria}} ir a <a href="{% url 'dispositivo' dispositivo.id%}">Detalle</a></li>
-      {% empty %}
-      <li>No hay mas dispositivos</li>
-    {% endfor %}
-  </ul>
-</body>
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{dispositivo.nombre}}</title>
+  </head>
+  <body>
+    <h1>Cargando datos del modelo</h1>
+    <p>Watafak django</p>
+    <ul>
+      <li>{{dispositivo.nombre}} - {{dispositivo.estado}} - {{dispositivo.categoria}}</li>
+    </ul>
+  </body>
 </html>
